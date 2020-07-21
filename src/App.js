@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import QrReader from 'react-qr-reader'
 import './App.css';
+import Topbar from './Topbar';
 
 function App() {
   const previewStyle = {
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div>
+    <Topbar/>
       <QrReader
           delay={delay}
           style={previewStyle}
