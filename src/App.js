@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import QrReader from 'react-qr-reader'
 import './App.css';
-import { Link } from 'react-router-dom';
 
 function App() {
   const previewStyle = {
-    height: 240,
-    width: 320,
+    height: 350,
+    width: 350,
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)"
   }
 
-  const [result, setResult] = useState("LOL");
+  const [result, setResult] = useState("");
   const [delay, setDelay] = useState(50);
 
   const handleScan = (result) => {
@@ -32,7 +34,6 @@ function App() {
           onError={handleError}
           onScan={handleScan}
       />
-      <p className="result">{result}</p>
     </div>
   );
 }
