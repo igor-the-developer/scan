@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import QrReader from 'react-qr-reader'
 import './App.css';
 import Topbar from './Topbar';
@@ -12,13 +12,9 @@ function App() {
     left: "50%",
     transform: "translate(-50%, -50%)"
   }
-
-  const [result, setResult] = useState("");
-  const [delay, setDelay] = useState(50);
-
+  
   const handleScan = (result) => {
     if(result) {
-      setResult(result);
       window.location.replace(result);
     }
   }
@@ -28,15 +24,15 @@ function App() {
   }
 
   return (
-    <div>
-    <Topbar/>
+    <>
+      <Topbar/>
       <QrReader
-          delay={delay}
+          delay={50}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
       />
-    </div>
+    </>
   );
 }
 
